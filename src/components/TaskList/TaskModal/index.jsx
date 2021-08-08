@@ -3,44 +3,34 @@ import { toast } from "react-toastify";
 
 import { Modal } from "src/components/Modal";
 import { FormErrors } from "src/components/FormErrors";
-import { ColorContainer, ColorRadioButton } from "./styles";
 
 import { api } from "src/api";
 
-const availableColors = ["blue", "red", "orange", "green", "purple"];
-
-export const ProjectModal = ({
+export const TaskModal = ({
   isOpen,
   onRequestClose,
   isEdit = false,
-  projectData = { id: "", name: "", color: "blue" },
+  projectId,
+  projectData = { id: "", name: "" },
 }) => {
   const [name, setName] = useState("");
-  const [color, setColor] = useState("blue");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     if (!isEdit) return;
-    const { name, color } = projectData;
+    const { name } = projectData;
     setName(name);
-    setColor(color);
   }, [isOpen]);
-
-  const handleChangeColor = (chosenColor) => (event) => {
-    event.preventDefault();
-    setColor(chosenColor);
-  };
 
   const clearForm = () => {
     setName("");
-    setColor("blue");
     setErrors([]);
   };
 
   const validateForm = () => {
     const errors = [];
     if (!name) errors.push("Name can not be empty");
-    if (!color) errors.push("Color can not be empty");
+
     setErrors(errors);
     return !errors.length;
   };
@@ -50,19 +40,19 @@ export const ProjectModal = ({
     const isFormValid = validateForm();
     if (!isFormValid) return;
 
-    return isEdit ? editProject() : createProject();
+    return isEdit ? editTask() : createTask();
   };
 
-  const editProject = () => {
+  const editTask = () => {
     const { id } = projectData;
     api
-      .patch(`/projects/${id}`, { name, color })
+      .patch(`/projects/${projectId}/tasks/${id}`, { name })
       .then((response) => {
         const message = response?.data?.message;
         toast.success(message);
 
-        onRequestClose();
         clearForm();
+        onRequestClose();
       })
       .catch((error) => {
         const message = error?.response?.data?.message;
@@ -70,15 +60,15 @@ export const ProjectModal = ({
       });
   };
 
-  const createProject = () => {
+  const createTask = () => {
     api
-      .post("/projects", { name, color })
+      .post(`/projects/${projectId}/tasks`, { name })
       .then((response) => {
         const message = response?.data?.message;
         toast.success(message);
 
-        onRequestClose();
         clearForm();
+        onRequestClose();
       })
       .catch((error) => {
         const message = error?.response?.data?.message;
@@ -86,36 +76,27 @@ export const ProjectModal = ({
       });
   };
 
-  const handleOnRequestClose = (event) => {
+  const handleCloseModal = (event) => {
+    event.preventDefault();
     clearForm();
     onRequestClose();
-    event.preventDefault();
   };
+
   return (
     <Modal
       isEdit={isEdit}
       isOpen={isOpen}
-      onRequestClose={handleOnRequestClose}
+      onRequestClose={handleCloseModal}
       onSubmit={handleSubmit}
       submitLabel={isEdit ? "Save" : "Create"}
     >
-      <h1>{isEdit ? "Edit Project" : "New Project"} </h1>
+      <h1>{isEdit ? "Edit Task" : "New Task"} </h1>
       <input
-        placeholder="Project name"
+        placeholder="Task name"
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      <h3>Color</h3>
-      <ColorContainer>
-        {availableColors.map((colorName) => (
-          <ColorRadioButton
-            id={colorName}
-            key={colorName}
-            selected={color === colorName}
-            onClick={handleChangeColor(colorName)}
-          />
-        ))}
-      </ColorContainer>
+
       <FormErrors errors={errors} />
     </Modal>
   );

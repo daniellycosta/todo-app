@@ -30,7 +30,9 @@ export const ProjectsList = () => {
     fetchProjects();
   };
 
-  useEffect(fetchProjects, []);
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <PageContent>

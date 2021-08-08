@@ -1,22 +1,19 @@
 import { Fragment, useState } from "react";
-import { Container, OptionsContainer, ProjectHeader } from "./styles";
+import { Container, ProjectHeader } from "./styles";
 import { toast } from "react-toastify";
 
 import { ProjectModal } from "../ProjectModal";
+import { HoverOptions } from "src/components/HoverOptions";
 import { ConfirmationModal } from "src/components/ConfirmationModal";
 
 import { api } from "src/api";
 import { useHistory } from "react-router";
 
 import inventoryImg from "src/assets/inventory.svg";
-import moreVertImg from "src/assets/moreVert.svg";
-import editImg from "src/assets/edit.svg";
-import deleteImg from "src/assets/delete.svg";
 
 export const Project = ({ color, title, id, fetchProjects }) => {
   const [openEditionModal, setOpenEditionModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
 
   const history = useHistory();
 
@@ -25,7 +22,8 @@ export const Project = ({ color, title, id, fetchProjects }) => {
     fetchProjects();
   };
 
-  const confirmDeleteAndFetchProjects = () => {
+  const confirmDeleteAndFetchProjects = (event) => {
+    event.preventDefault();
     api
       .delete(`/projects/${id}`)
       .then((response) => {
@@ -51,28 +49,17 @@ export const Project = ({ color, title, id, fetchProjects }) => {
     <Fragment>
       <Container color={color} onClick={handleClickProject}>
         <ProjectHeader>
-          <img src={inventoryImg} alt="project icon" />
-          <OptionsContainer
-            onMouseEnter={() => setShowMenu(true)}
-            onMouseLeave={() => setShowMenu(false)}
-          >
-            {showMenu ? (
-              <Fragment>
-                <img
-                  src={editImg}
-                  alt="Edit"
-                  onClick={() => setOpenEditionModal(true)}
-                />
-                <img
-                  src={deleteImg}
-                  alt="Delete"
-                  onClick={() => setOpenDeleteModal(true)}
-                />
-              </Fragment>
-            ) : (
-              <img src={moreVertImg} alt="options" />
-            )}
-          </OptionsContainer>
+          <img src={inventoryImg} alt="project icon" id="icon" />
+          <HoverOptions
+            onClickDelete={(event) => {
+              event.stopPropagation();
+              setOpenDeleteModal(true);
+            }}
+            onClickEdit={(event) => {
+              event.stopPropagation();
+              setOpenEditionModal(true);
+            }}
+          />
         </ProjectHeader>
 
         <h3>{title}</h3>
@@ -84,7 +71,7 @@ export const Project = ({ color, title, id, fetchProjects }) => {
         onRequestClose={closeModalAndFetchProjects}
       />
       <ConfirmationModal
-        name={title}
+        entityName="project"
         isOpen={openDeleteModal}
         onSubmit={confirmDeleteAndFetchProjects}
         onRequestClose={() => setOpenDeleteModal(false)}
