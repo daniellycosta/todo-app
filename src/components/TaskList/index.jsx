@@ -1,7 +1,7 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { PageContent } from "../PageContent";
 
-import { TaskAddButton, Container } from "./style";
+import { TaskAddButton, Container, PageHeader } from "./style";
 import { TaskModal } from "./TaskModal";
 import { Task } from "./Task";
 
@@ -9,11 +9,16 @@ import addImg from "src/assets/add.svg";
 
 import { api } from "src/api";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 export const TaskList = () => {
   const [openModal, setOpenModal] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const [projectName, setProjectName] = useState("");
+
   const [, , projectId] = window.location.pathname.split("/");
+
+  const history = useHistory();
 
   const fetchTasks = () => {
     api
@@ -28,7 +33,21 @@ export const TaskList = () => {
       });
   };
 
+  const getProjectName = () => {
+    api
+      .get(`/projects/${projectId}`)
+      .then((response) => {
+        const { data } = response;
+        setProjectName(data.name);
+      })
+      .catch((error) => {
+        const message = error?.response?.data?.message;
+        toast.error(message);
+      });
+  };
+
   useEffect(fetchTasks, []);
+  useEffect(getProjectName, []);
 
   const closeModalAndFetchTasks = () => {
     setOpenModal(false);
@@ -38,6 +57,10 @@ export const TaskList = () => {
   return (
     <PageContent>
       <Container>
+        <PageHeader>
+          <h1>{projectName}</h1>
+          <button onClick={() => history.goBack()}>Back</button>
+        </PageHeader>
         <TaskAddButton onClick={() => setOpenModal(true)}>
           <img src={addImg} alt="add task" />
         </TaskAddButton>
@@ -46,7 +69,7 @@ export const TaskList = () => {
             key={_id}
             id={_id}
             name={name}
-            finished={finished}
+            finished={Boolean(finished)}
             finishedAt={finishedAt}
             projectId={projectId}
             fetchTasks={fetchTasks}

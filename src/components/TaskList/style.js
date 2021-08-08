@@ -31,3 +31,11 @@ export const TaskAddButton = styled.div`
     width: 4rem;
   }
 `;
+
+export const PageHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 2rem;
+`;

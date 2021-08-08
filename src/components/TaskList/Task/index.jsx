@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { toast } from "react-toastify";
 
-import { TaskContainer, TaskHeader } from "./style";
+import { PageHeader, TaskContainer, TaskHeader } from "./style";
 import { TaskModal } from "../TaskModal";
 import { HoverOptions } from "src/components/HoverOptions";
 import { ConfirmationModal } from "src/components/ConfirmationModal";
@@ -91,6 +91,7 @@ export const Task = ({
           <HoverOptions
             onClickEdit={() => setOpenEditModal(true)}
             onClickDelete={() => setOpenDeleteModal(true)}
+            disableEdit={finished}
           />
         </div>
       </TaskContainer>

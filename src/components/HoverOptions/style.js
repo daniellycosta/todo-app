@@ -26,7 +26,11 @@ export const OptionsContainer = styled.div`
     animation: ${fadeIn} 0.5s linear;
   }
 
-  img {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background: none;
     border-radius: 3.125rem;
 
