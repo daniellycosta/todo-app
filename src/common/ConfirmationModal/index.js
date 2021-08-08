@@ -1,4 +1,4 @@
-import { Modal } from "src/components/Modal";
+import { Modal } from "../Modal";
 
 export const ConfirmationModal = ({
   entityName,

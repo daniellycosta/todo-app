@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
 import { toast } from "react-toastify";
 
-import { PageHeader, TaskContainer, TaskHeader } from "./style";
+import { TaskContainer, TaskHeader } from "./style";
 import { TaskModal } from "../TaskModal";
-import { HoverOptions } from "src/components/HoverOptions";
-import { ConfirmationModal } from "src/components/ConfirmationModal";
+import { HoverOptions } from "src/common/HoverOptions";
+import { ConfirmationModal } from "src/common/ConfirmationModal";
 
 import checkBoxBlankImg from "src/assets/checkBoxBlank.svg";
 import checkBoxCheckedImg from "src/assets/checkBoxChecked.svg";

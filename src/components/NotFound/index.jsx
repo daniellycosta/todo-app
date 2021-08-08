@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 
 import { Container } from "./styles";
-import { PublicPages } from "../PublicPages";
+import { PublicPages } from "src/common/PublicPages";
 
 export const NotFound = () => {
   const history = useHistory();

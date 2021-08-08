@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Container } from "./styles";
-import { PublicPages } from "../PublicPages";
-import { FormErrors } from "../FormErrors";
+import { PublicPages } from "src/common/PublicPages";
+import { FormErrors } from "src/common/FormErrors";
 
 import { api } from "src/api";
 import { emailIsValid } from "src/utils";

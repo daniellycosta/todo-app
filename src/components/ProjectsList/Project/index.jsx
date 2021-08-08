@@ -3,8 +3,8 @@ import { Container, ProjectHeader } from "./styles";
 import { toast } from "react-toastify";
 
 import { ProjectModal } from "../ProjectModal";
-import { HoverOptions } from "src/components/HoverOptions";
-import { ConfirmationModal } from "src/components/ConfirmationModal";
+import { HoverOptions } from "src/common/HoverOptions";
+import { ConfirmationModal } from "src/common/ConfirmationModal";
 
 import { api } from "src/api";
 import { useHistory } from "react-router";

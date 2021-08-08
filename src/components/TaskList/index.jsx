@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PageContent } from "../PageContent";
+import { PageContent } from "src/common/PageContent";
 
 import { TaskAddButton, Container, PageHeader } from "./style";
 import { TaskModal } from "./TaskModal";

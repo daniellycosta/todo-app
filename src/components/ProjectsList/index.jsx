@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-import { PageContent } from "../PageContent";
+import { PageContent } from "src/common/PageContent";
 import { AddProjectButton } from "./AddProjectButton";
 import { Project } from "./Project";
 

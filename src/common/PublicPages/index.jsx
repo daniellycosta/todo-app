@@ -1,6 +1,6 @@
 import { DoublePageContainer, Content, ImagesContainer } from "./styles";
-import checklistImg from "../../assets/checklist.png";
-import todoLogoDarkImg from "../../assets/todoLogoDark.svg";
+import checklistImg from "src/assets/checklist.png";
+import todoLogoDarkImg from "src/assets/todoLogoDark.svg";
 
 export const PublicPages = ({ children }) => {
   return (

@@ -8,7 +8,7 @@ import {
 
 import { useAuth } from "src/hooks/useAuth";
 
-import { Header } from "src/components/Header";
+import { Header } from "src/common/Header";
 
 import { Login } from "src/components/Login";
 import { Signup } from "src/components/Signup";

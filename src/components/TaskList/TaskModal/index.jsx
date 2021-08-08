@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-import { Modal } from "src/components/Modal";
-import { FormErrors } from "src/components/FormErrors";
+import { Modal } from "src/common/Modal";
+import { FormErrors } from "src/common/FormErrors";
 
 import { api } from "src/api";
 

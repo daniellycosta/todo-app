@@ -3,7 +3,7 @@ import { Container, Content } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "src/hooks/useAuth";
 
-import logoImg from "../../assets/todoLogo.svg";
+import logoImg from "src/assets/todoLogo.svg";
 
 export const Header = () => {
   const { deleteUserAuth } = useAuth();
