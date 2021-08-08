@@ -45,6 +45,7 @@ export const Signup = () => {
         .then((response) => {
           const message = response?.data?.message;
           toast.success(message);
+          history.push("/login");
         })
         .catch((error) => {
           const message = error?.response?.data?.message;
