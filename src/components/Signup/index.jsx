@@ -25,7 +25,7 @@ export const Signup = () => {
       validationErrors.push("Please insert a valid email!");
 
     if (password.length < 6)
-      validationErrors.push("Password might have 6 or more characters");
+      validationErrors.push("Password must have 6 or more characters");
 
     if (password !== repeatPassword)
       validationErrors.push("Passwords do not match");

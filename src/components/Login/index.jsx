@@ -26,6 +26,7 @@ export const Login = () => {
 
     if (!emailIsValid(email))
       validationErrors.push("Please insert a valid email!");
+    if (!password) validationErrors.push("Please insert a password!");
 
     setErrors(validationErrors);
 
