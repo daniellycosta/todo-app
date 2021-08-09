@@ -68,7 +68,9 @@ export const TaskContainer = styled.div`
       display: inline-block;
     }
     .task-header .task-name {
-      display: none;
+      @media only screen and (max-width: 720px) {
+        display: ${(props) => (props.finished ? "none" : "block")};
+      }
     }
   }
 `;
