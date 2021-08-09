@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e6aa2d10-3a26-4090-8238-72e9c0fe53f9/deploy-status)](https://app.netlify.com/sites/danielly-todo-app/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TodoApp
 
-## Available Scripts
+A project management software that allows users to create projects with a to-do list and registration when each task is finished.
 
-In the project directory, you can run:
+## Content Table
 
-### `yarn start`
+- [How to use](#how-to-use)
+  - [REACT_APP enviroment variables](#envs)
+  - [Installing dependencies and starting](#install)
+- [Technologies](#technologies)
+- [Figma draft](#figma)
+- [Author](#author)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## [How to use](#how-to-use)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### [REACT_APP enviroment variables](#envs)
 
-### `yarn test`
+This project needs to connect to an api. The API URL can be set on the `.env` file that should be created on root.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **REACT_APP_API_URL**: Api base url. Default value: `http://localhost:3001/api`
 
-### `yarn build`
+You can also use the api created for this project clicking [here](https://github.com/daniellycosta/todo-api).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### [Installing dependencies and starting](#install)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Once you've cloned the project, you should run the command down below to install the dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn install
+```
 
-### `yarn eject`
+After installing the dependencies, run the command below to start the application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## [Technologies used](#technologies)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This app was made using:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [React-toastify](https://www.npmjs.com/package/react-toastify)
 
-## Learn More
+## [Figma draft](#figma)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To this project, a draft was made using Figma and can be checked out [here](https://www.figma.com/file/SaaAC3uHnF1vBl23MMDWpM/Todo?node-id=0%3A1)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## [Author](#author)
 
-### Code Splitting
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/29708442?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Danielly Costa</b></sub>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Made with ❤️ by Danielly Costa
 
-### Analyzing the Bundle Size
+[![Linkedin Badge](https://img.shields.io/badge/-Danielly-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/danielly-costa/)](https://www.linkedin.com/in/danielly-costa/)
+[![Gmail Badge](https://img.shields.io/badge/-daniellycmcosta@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:daniellycmcosta@gmail.com)](mailto:daniellycmcosta@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## [License](#license)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
