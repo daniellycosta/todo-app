@@ -11,12 +11,20 @@ export const HoverOptions = ({
   disableDelete = false,
   disableEdit = false,
 }) => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(() => {
+    return window.innerWidth > 720 ? false : true;
+  });
 
   return (
     <OptionsContainer
-      onMouseEnter={() => setShowMenu(true)}
-      onMouseLeave={() => setShowMenu(false)}
+      onMouseEnter={() => {
+        if (window.innerWidth < 720) return;
+        setShowMenu(true);
+      }}
+      onMouseLeave={() => {
+        if (window.innerWidth < 720) return;
+        setShowMenu(false);
+      }}
     >
       {showMenu ? (
         <Fragment>

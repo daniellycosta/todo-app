@@ -19,6 +19,11 @@ export const OptionsContainer = styled.div`
 
   padding: 0.2rem 0.3rem;
 
+  @media only screen and (max-width: 720px) {
+    background-color: var(--text-body);
+    justify-content: space-between;
+  }
+
   &:hover {
     background-color: var(--text-body);
     justify-content: space-between;
