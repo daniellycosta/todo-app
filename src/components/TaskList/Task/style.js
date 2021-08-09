@@ -30,42 +30,45 @@ export const TaskContainer = styled.div`
     }
   }
 
+  .task-header {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 30rem;
+
+      text-decoration: ${(props) => (props.finished ? "line-through" : "none")};
+
+      @media only screen and (max-width: 720px) {
+        white-space: normal;
+      }
+    }
+
+    button {
+      background: transparent;
+
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
   &:hover {
     .task-body .tooltip {
       display: inline-block;
     }
-  }
-`;
-
-export const TaskHeader = styled.div`
-  display: flex;
-  align-items: center;
-
-  h3 {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 30rem;
-
-    text-decoration: ${(props) => (props.finished ? "line-through" : "none")};
-
-    @media only screen and (max-width: 720px) {
-      white-space: normal;
-    }
-  }
-
-  button {
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-  }
-
-  img {
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.9);
+    .task-header .task-name {
+      display: none;
     }
   }
 `;

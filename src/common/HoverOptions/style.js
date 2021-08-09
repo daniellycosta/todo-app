@@ -10,7 +10,7 @@ from{
 
 export const OptionsContainer = styled.div`
   border-radius: 3.125rem;
-  width: 7.5rem;
+  width: 7.4rem;
   height: 2.5rem;
 
   display: flex;
@@ -22,6 +22,7 @@ export const OptionsContainer = styled.div`
   @media only screen and (max-width: 720px) {
     background-color: var(--text-body);
     justify-content: space-between;
+    min-width: 7.4rem;
   }
 
   &:hover {

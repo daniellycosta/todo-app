@@ -4,6 +4,8 @@
 
 A project management software that allows users to create projects with a to-do list and registration when each task is finished.
 
+![sample](sample.gif)
+
 ## Content Table
 
 - [How to use](#how-to-use)

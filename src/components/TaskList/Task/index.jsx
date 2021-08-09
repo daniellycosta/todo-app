@@ -65,16 +65,16 @@ export const Task = ({
 
   return (
     <Fragment>
-      <TaskContainer>
-        <TaskHeader finished={finished}>
+      <TaskContainer finished={finished}>
+        <div className="task-header">
           <button onClick={finishTask} disabled={finished}>
             <img
               src={finished ? checkBoxCheckedImg : checkBoxBlankImg}
               alt="checkbox"
             />
           </button>
-          <h3>{name}</h3>
-        </TaskHeader>
+          <h3 className="task-name">{name}</h3>
+        </div>
         <div className="task-body">
           {finished && (
             <h3 className="tooltip">

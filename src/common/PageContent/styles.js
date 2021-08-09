@@ -12,4 +12,9 @@ export const Content = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+
+  @media only screen and (max-width: 720px) {
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
