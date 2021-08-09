@@ -48,6 +48,10 @@ export const TaskHeader = styled.div`
     max-width: 30rem;
 
     text-decoration: ${(props) => (props.finished ? "line-through" : "none")};
+
+    @media only screen and (max-width: 720px) {
+      white-space: normal;
+    }
   }
 
   button {
